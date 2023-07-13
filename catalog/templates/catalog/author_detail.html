@@ -1,0 +1,14 @@
+{% extends "base_generic.html" %}
+{% block content %}
+{% load static %}
+  <link rel="stylesheet" href="{% static 'css/author_detail.css' %}">
+  <h1>Author: {{ author }}</h1>
+  <p> {{ author.date_of_birth }}</p>
+  <div class="author">
+    <h4>Books</h4>
+    {% for book in author.book_set.all %}
+      <p id = "book_title"><strong>{{ book.title }}</strong></font></p>
+      <p>{{ book.summary }}</p>
+    {% endfor %}
+  </div>
+{% endblock %}
